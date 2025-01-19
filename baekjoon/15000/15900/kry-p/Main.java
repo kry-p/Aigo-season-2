@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(reader.readLine());
-        connection = new ArrayList[n + 1]; // 연결 상태를 저장
+        connection = new ArrayList[n + 1];
         for (int i = 0; i <= n; i++) connection[i] = new ArrayList<>();
         for (int i = 0; i < n - 1; i++) {
             int[] current = Arrays.stream(reader.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
@@ -33,7 +33,6 @@ public class Main {
             if (isVisited[next]) continue;
             dfs(next, current, currentDepth + 1);
         }
-        // 연결된 노드가 하나만 있는 경우 리프 노드로 간주하고 깊이를 더함
         if (connection[current].size() == 1) depth += currentDepth;
     }
 }
